@@ -1,0 +1,15 @@
+Total Customers = COUNTROWS(Loan_Credit_Risk_Cleaned)
+
+Total Loans = DISTINCTCOUNT(Loan_Credit_Risk_Cleaned[Loan_ID])
+
+Defaulted Loans = CALCULATE([Total Loans], Loan_Credit_Risk_Cleaned[Default_Status] = "Default")
+
+Non-Defaulted Loans = CALCULATE([Total Loans], Loan_Credit_Risk_Cleaned[Default_Status] = "Non-Default")
+
+Default Rate % = DIVIDE([Defaulted Loans], [Total Loans], 0)
+
+Average Loan Amount = AVERAGE(Loan_Credit_Risk_Cleaned[Loan_Amount])
+
+Average Credit Score = AVERAGE(Loan_Credit_Risk_Cleaned[Credit_Score])
+
+Average Annual Income = AVERAGE(Loan_Credit_Risk_Cleaned[Annual_Income])
